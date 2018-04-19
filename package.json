@@ -1,0 +1,22 @@
+{
+  "name": "dogwalker-project-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:hughthorn/dogwalker-project-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "npm": "^5.8.0",
+    "pg-promise": "^8.4.0"
+  }
+}
