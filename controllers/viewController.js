@@ -5,8 +5,19 @@ function homePage(req, res) {
   });
 }
 
+function selectOneClient(req, res) {
+  res.render('views/homepage', {
+    client: res.locals.client,
+  });
+}
+
+// function showAllStudents(req, res) {
+//   res.render('')
+// }
+
 module.exports = {
   homePage,
+  selectOneClient,
 };
 
 //   showLoginForm(req, res) {

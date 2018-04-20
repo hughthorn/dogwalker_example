@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
-  <h1>Hello World</h1>
-</body>
+<% clients.forEach((client) => { %>
+    <div class="client">
+      <a href="/controlles/<%=client.id%>">
+        <h1>
+          <%=client.fname%><%=client.lname%><%=client.dog_name%>
+        </h1>
+      </a>
+    </div>
+    <% }) %>
+  </body>
 </html>
