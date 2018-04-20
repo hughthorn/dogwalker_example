@@ -2,10 +2,10 @@
 const db = require('../config/connections');
 
 function getAllClients() {
-  const queryAll = db.many(`
+  const queryAll = db.manyOrNone(`
     SELECT *
     FROM client
-  ORDER BY id
+    ORDER BY id
     `);
   return queryAll;
 }

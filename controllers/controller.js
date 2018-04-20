@@ -15,7 +15,7 @@ function getAll(req, res, next) {
     });
 }
 
-function getOne (req, res, next) {
+function getOne(req, res, next) {
   clientsDb.getOneClient(req.params.id)
     .then(data => {
       res.locals.client = data;
@@ -26,44 +26,44 @@ function getOne (req, res, next) {
     });
 }
 
-function create(req, res, next) {
-  clientsDb.createClient(req.body)
-    .then(data => {
-      res.locals.newClient = data;
-      next();
-    })
-    .catch(err => {
-      next(err);
-    });
-}
+// function create(req, res, next) {
+//   clientsDb.createClient(req.body)
+//     .then(data => {
+//       res.locals.newClient = data;
+//       next();
+//     })
+//     .catch(err => {
+//       next(err);
+//     });
+// }
 
-function update(req, res, next) {
-    req.body.id = req.params.id;
-  clientsDb.updateClient(req.body)
-    .then(data => {
-      res.redirect(`/clients/${req.body.id}`)
-    })
-    .catch(err=> {
-      err:err
-    });
-}
+// function update(req, res, next) {
+//     req.body.id = req.params.id;
+//   clientsDb.updateClient(req.body)
+//     .then(data => {
+//       res.redirect(`/clients/${req.body.id}`)
+//     })
+//     .catch(err=> {
+//       err:err
+//     });
+// }
 
-function terminate(req, res) {
-  studentsDb.deleteClient(req.params.id)
-    .then(() => {
-      res.redirect('/clients');
-    })
-    .catch(err => {
-      res.status(500).json({
-        message:err.message
-      })
-    });
-}
+// function terminate(req, res) {
+//   studentsDb.deleteClient(req.params.id)
+//     .then(() => {
+//       res.redirect('/clients');
+//     })
+//     .catch(err => {
+//       res.status(500).json({
+//         message:err.message
+//       })
+//     });
+// }
 
 module.exports = {
   getAll,
   getOne,
-  create,
-  update,
-  terminate
+  // create,
+  // update,
+  // terminate,
 };

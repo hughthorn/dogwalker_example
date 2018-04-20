@@ -7,7 +7,7 @@ function homePage(req, res) {
 
 function selectOneClient(req, res) {
   res.render('views/homepage', {
-    client: res.locals.client,
+    client: res.locals.clients,
   });
 }
 
