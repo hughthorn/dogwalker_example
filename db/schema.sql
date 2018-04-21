@@ -1,24 +1,64 @@
 \c dog_walker_crud_test
 
-DROP TABLE IF EXISTS client CASCADE;
--- DROP TABLE IF EXISTS walker
--- DROP TABLE IF EXISTS appointments
+DROP TABLE IF EXISTS available_appointments CASCADE;
+DROP TABLE IF EXISTS dogs CASCADE;
+DROP TABLE IF EXISTS walkers CASCADE;
+DROP TABLE IF EXISTS booked_appointments CASCADE;
 
-CREATE TABLE client (
+CREATE TABLE available_appointments (
   id SERIAL PRIMARY KEY,
-  fname VARCHAR(255),
-  lname VARCHAR(255),
-  username VARCHAR(255) UNIQUE NOT NULL,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  dog_name VARCHAR(255) NOT NULL
+  available_time TIMESTAMP
 );
 
--- CREATE TABLE walker (id SERIAL PRIMARY KEY,)
--- CREATE TABLE appointments (id SERIAL PRIMARY KEY,)
+CREATE TABLE dogs (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
 
-INSERT INTO client
-  (fname, lname, username, email, password, dog_name)
+CREATE TABLE walkers (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE booked_appointments (
+  id SERIAL PRIMARY KEY,
+  available_appointment_id INTEGER REFERENCES available_appointments(id),
+  dog_id INTEGER REFERENCES dogs(id),
+  walker_id INTEGER REFERENCES walkers(id)
+);
+
+INSERT INTO available_appointments
+  (available_time)
 VALUES
-  ('Keith', 'Dude', 'yourMan303', 'yourMan303@gmail.com', 'tysldk454', 'Spots'),
-  ('Larry', 'Dude', 'lalala', 'hellolight@gmail.com', 'crap', 'lowP');
+  ('2018-10-15 9:00:00'),
+  ('2018-10-15 9:30:00'),
+  ('2018-10-15 10:00:00'),
+  ('2018-10-15 10:30:00'),
+  ('2018-10-15 11:00:00'),
+  ('2018-10-15 11:30:00'),
+  ('2018-10-15 12:00:00'),
+  ('2018-10-15 12:30:00'),
+  ('2018-10-15 13:00:00'),
+  ('2018-10-15 13:30:00'),
+  ('2018-10-15 14:00:00'),
+  ('2018-10-15 14:30:00'),
+  ('2018-10-15 15:00:00'),
+  ('2018-10-15 15:30:00'),
+  ('2018-10-15 16:00:00'),
+  ('2018-10-15 16:30:00');
+
+INSERT INTO dogs
+  (name)
+VALUES
+  ('Spots'),
+  ('Fido'),
+  ('Steve');
+
+INSERT INTO walkers
+  (name)
+VALUES
+  ('Jason'),
+  ('Jimmy'),
+  ('Sally');
+
+
