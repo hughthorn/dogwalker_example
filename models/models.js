@@ -1,31 +1,71 @@
 // Template for this model came from Peter Hoang
 const db = require('../config/connections');
 
-function getAllClients() {
-  const queryAll = db.manyOrNone(`
+// SELECT ALL
+function getAllAppointments() {
+  const queryAvailible = db.manyOrNone(`
     SELECT *
-    FROM client
+    FROM available_appointments
     ORDER BY id
     `);
-  return queryAll;
+  return queryAvailible;
 }
 
-function getOneClient(id) {
-  const queryOne = db.one(`
+function getAllDogs() {
+  const queryDogs = db.manyOrNone(`
     SELECT *
-    FROM client
-    WHERE id = $1`, id);
-  return queryOne;
+    FROM dogs
+    ORDER BY id
+    `);
+  return queryDogs;
 }
 
-function createClient(client) {
+function getAllWalkers() {
+  const queryWalkers = db.manyOrNone(`
+    SELECT *
+    FROM walkers
+    ORDER BY id
+    `);
+  return queryWalkers;
+}
+
+function getAllBookedAppointments() {
+  const queryBooked = db.manyOrNone(`
+    SELECT *
+    FROM booked_appointments
+    ORDER BY id
+    `);
+  return queryBooked;
+}
+
+// CREATE
+
+function createAppointment(app) {
   const create = db.one(`
-    INSERT INTO client
-    (fname, lname, username, email, password, dog_name)
-    VALUES ($/fname/, $/lname/, $/username/, $/email/, $/password/, $/dog_name/)
-    RETURNING *`, client);
+    INSERT INTO booked_appointments
+    (available_appointment_time, dog_id, walker_id)
+    VALUES ($/available_appointment_time/, $/dog_id/, $/walker_id/)
+    REUTRNING *
+    `, app);
   return create;
 }
+
+// function getOneClient(id) {
+//   const queryOne = db.one(`
+//     SELECT *
+//     FROM client
+//     WHERE id = $1`, id);
+//   return queryOne;
+// }
+
+// function createClient(client) {
+//   const create = db.one(`
+//     INSERT INTO client
+//     (fname, lname, username, email, password, dog_name)
+//     VALUES ($/fname/, $/lname/, $/username/, $/email/, $/password/, $/dog_name/)
+//     RETURNING *`, client);
+//   return create;
+// }
 
 // function updateClient(client) {
 //   const query = db.one(`
@@ -49,9 +89,9 @@ function createClient(client) {
 // }
 
 module.exports = {
-  getAllClients,
-  getOneClient,
-  createClient,
-  // updateClient,
-  // deleteClient,
+  getAllAppointments,
+  getAllDogs,
+  getAllWalkers,
+  getAllBookedAppointments,
+  createAppointment,
 };

@@ -1,45 +1,45 @@
-const clientsDb = require('../models/clients');
+const dogsDb = require('../models/models');
 
-function getAll(req, res, next) {
+function getAllApps(req, res, next) {
   console.log('Getting all clients');
-  clientsDb.getAllClients()
+  dogsDb.getAllAppointments()
     .then(data => {
-      console.log('this is data:', data);
+      console.log('All appointments');
       res.json(data);
-      // res.locals.clients = data;
-      // next();
+      res.locals.allAppointments = data;
+      next();
     })
     .catch(err=> {
       next(err);
     });
 }
 
-function getOne(req, res, next) {
-  clientsDb.getOneClient(req.params.id)
-    .then(data => {
-      res.json(data);
-      // res.locals.client = data;
-      // next();
-    })
-    .catch(err => {
-      next(err);
-    });
-}
+// function getOne(req, res, next) {
+//   dogsDb.getOneClient(req.params.id)
+//     .then(data => {
+//       res.json(data);
+//       // res.locals.client = data;
+//       // next();
+//     })
+//     .catch(err => {
+//       next(err);
+//     });
+// }
 
-function create(req, res, next) {
-  clientsDb.createClient(req.body)
-    .then(data => {
-      res.locals.newClient = data;
-      next();
-    })
-    .catch(err => {
-      next(err);
-    });
-}
+// function create(req, res, next) {
+//   dogsDb.createClient(req.body)
+//     .then(data => {
+//       res.locals.newClient = data;
+//       next();
+//     })
+//     .catch(err => {
+//       next(err);
+//     });
+// }
 
 // function update(req, res, next) {
 //     req.body.id = req.params.id;
-//   clientsDb.updateClient(req.body)
+//   dogsDb.updateClient(req.body)
 //     .then(data => {
 //       res.redirect(`/clients/${req.body.id}`)
 //     })
@@ -61,9 +61,9 @@ function create(req, res, next) {
 // }
 
 module.exports = {
-  getAll,
-  getOne,
-  create,
+  getAllApps,
+  // getOne,
+  // create,
   // update,
   // terminate,
 };

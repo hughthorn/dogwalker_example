@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
-app.use('/homepage', router);
+app.use('/', router);
 // app.get('/', (req, res) => {
 //   res.render('homepage.ejs');
 // });

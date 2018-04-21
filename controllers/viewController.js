@@ -1,30 +1,34 @@
-function homePage(req, res) {
-  console.log('homepage');
-  res.render('homepage', {
-    clients: res.locals.clients,
+function showAppointments(req, res) {
+  console.log('Showing all appointments');
+  res.render('appointments/appointments', {
+    appointments: res.locals.appointments,
   });
 }
 
-function selectOneClient(req, res) {
-  res.render('show', {
-    client: res.locals.client,
-  });
-}
+module.exports = {
+  showAppointments,
+};
 
-function createClient(req, res) {
-  client = res.locals.newClient;
-  res.redirect(`create/ ${client.id}`);
-}
+// function selectOneClient(req, res) {
+//   res.render('show', {
+//     client: res.locals.client,
+//   });
+// }
 
+// function createClient(req, res) {
+//   client = res.locals.newClient;
+//   res.redirect(`create/ ${client.id}`);
+// }
 // function showAllStudents(req, res) {
 //   res.render('')
 // }
 
-module.exports = {
-  homePage,
-  selectOneClient,
-  createClient,
-};
+
+// module.exports = {
+//   homePage,
+//   selectOneClient,
+//   createClient,
+// };
 
 //   showLoginForm(req, res) {
 //     console.log('Login page');
