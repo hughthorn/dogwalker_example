@@ -6,9 +6,14 @@ function homePage(req, res) {
 }
 
 function selectOneClient(req, res) {
-  res.render('views/homepage', {
-    client: res.locals.clients,
+  res.render('show', {
+    client: res.locals.client,
   });
+}
+
+function createClient(req, res) {
+  client = res.locals.newClient;
+  res.redirect(`create/ ${client.id}`);
 }
 
 // function showAllStudents(req, res) {
@@ -18,6 +23,7 @@ function selectOneClient(req, res) {
 module.exports = {
   homePage,
   selectOneClient,
+  createClient,
 };
 
 //   showLoginForm(req, res) {

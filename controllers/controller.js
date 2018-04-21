@@ -4,7 +4,6 @@ function getAll(req, res, next) {
   console.log('Getting all clients');
   clientsDb.getAllClients()
     .then(data => {
-      // console.log('Queried db and got' + data.length + 'results');
       console.log('this is data:', data);
       res.json(data);
       // res.locals.clients = data;
@@ -18,24 +17,25 @@ function getAll(req, res, next) {
 function getOne(req, res, next) {
   clientsDb.getOneClient(req.params.id)
     .then(data => {
-      res.locals.client = data;
-      next();
+      res.json(data);
+      // res.locals.client = data;
+      // next();
     })
     .catch(err => {
       next(err);
     });
 }
 
-// function create(req, res, next) {
-//   clientsDb.createClient(req.body)
-//     .then(data => {
-//       res.locals.newClient = data;
-//       next();
-//     })
-//     .catch(err => {
-//       next(err);
-//     });
-// }
+function create(req, res, next) {
+  clientsDb.createClient(req.body)
+    .then(data => {
+      res.locals.newClient = data;
+      next();
+    })
+    .catch(err => {
+      next(err);
+    });
+}
 
 // function update(req, res, next) {
 //     req.body.id = req.params.id;
@@ -63,7 +63,7 @@ function getOne(req, res, next) {
 module.exports = {
   getAll,
   getOne,
-  // create,
+  create,
   // update,
   // terminate,
 };

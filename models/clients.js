@@ -10,7 +10,7 @@ function getAllClients() {
   return queryAll;
 }
 
-function getOneclient(id) {
+function getOneClient(id) {
   const queryOne = db.one(`
     SELECT *
     FROM client
@@ -18,14 +18,14 @@ function getOneclient(id) {
   return queryOne;
 }
 
-// function createClient(client) {
-//   const create = db.one(`
-//     INSERT INTO client
-//     (fname, lname, username, email, password, dog_name)
-//     VALUES ($/fname/, $/lname/, $/username/, $/email/, $/password/, $/dog_name/)
-//     RETURNING *`, client);
-//   return create;
-// }
+function createClient(client) {
+  const create = db.one(`
+    INSERT INTO client
+    (fname, lname, username, email, password, dog_name)
+    VALUES ($/fname/, $/lname/, $/username/, $/email/, $/password/, $/dog_name/)
+    RETURNING *`, client);
+  return create;
+}
 
 // function updateClient(client) {
 //   const query = db.one(`
@@ -50,8 +50,8 @@ function getOneclient(id) {
 
 module.exports = {
   getAllClients,
-  getOneclient,
-  // createClient,
+  getOneClient,
+  createClient,
   // updateClient,
   // deleteClient,
 };

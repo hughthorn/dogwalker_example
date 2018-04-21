@@ -12,8 +12,8 @@ function sendError(err, req, res, next) {
 }
 
 clientRouter.route('/')
-  .get(clientController.getAll, viewController.homePage, sendError);
-// .post(clientController.create, viewController.selectOneClient)
+  .get(clientController.getAll, viewController.homePage, sendError)
+  .post(clientController.create, viewController.selectOneClient);
 
 clientRouter.route('/:id')
   .get(clientController.getOne, viewController.selectOneClient);
