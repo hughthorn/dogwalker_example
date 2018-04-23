@@ -3,7 +3,6 @@ function showAll(req, res) {
     appointments: res.locals.apps,
     dogs: res.locals.dogs,
     walkers: res.locals.data,
-    booked: res.locals.booked,
   });
 }
 
@@ -12,12 +11,6 @@ function showOneApp(req, res) {
     booked: res.locals.booked,
   });
 }
-
-// function showBookedAppointments(req, res) {
-//   res.render('main/main', {
-//     bookedApps: res.locals.bookedApps,
-//   });
-// }
 
 function createBookedApp(req, res) {
   booked = res.locals.booked;

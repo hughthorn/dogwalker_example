@@ -2,7 +2,7 @@
 <div class="available_appointments">
 <% appointments.forEach((apps) => { %>
         <h1>
-          <%=apps.available_time%>
+          <%=apps.available_time%><%=apps.dog_id%><%=apps.walker_id%>
            <% }) %>
         </h1>
         <% dogs.forEach((dog) => { %>

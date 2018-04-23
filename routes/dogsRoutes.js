@@ -19,6 +19,9 @@ dogRouter.route('/')
     viewController.showAll, sendError,
   );
 
+dogRouter.route('/:id')
+  .get(controller.showOne, viewController.showOneApp, sendError);
+
 // dogRouter.route('/dogs')
 //   .get(controller.showAllDogs, viewController.showDogs, sendError);
   // .get(controller.showAllWalkers, viewController.showWalkers, sendError);
