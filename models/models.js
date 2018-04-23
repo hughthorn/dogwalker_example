@@ -3,12 +3,13 @@ const db = require('../config/connections');
 
 // SELECT ALL
 function getAllAppointments() {
-  const queryAvailible = db.manyOrNone(`
+  const queryAppointments = db.manyOrNone(`
     SELECT *
     FROM appointments
-    ORDER BY id
+    LEFT JOIN dogs ON appointments.dog_id = dogs.id
+    LEFT JOIN walkers ON appointments.walker_id = walkers.id
     `);
-  return queryAvailible;
+  return queryAppointments;
 }
 
 function findOneAppointment(id) {

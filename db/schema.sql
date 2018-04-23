@@ -21,17 +21,17 @@ CREATE TABLE appointments (
   walker_id INTEGER REFERENCES walkers(id)
 );
 
-INSERT INTO walkers
-  (wname)
-VALUES
-  ('Jason');
-
 INSERT INTO dogs
   (dname)
 VALUES
   ('Spots'),
   ('Fido'),
   ('Steve');
+
+INSERT INTO walkers
+  (wname)
+VALUES
+  ('Jason');
 
 INSERT INTO appointments
   (available_time, dog_id, walker_id)

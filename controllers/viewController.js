@@ -13,11 +13,11 @@ function showOneApp(req, res) {
   });
 }
 
-function showBookedAppointments(req, res) {
-  res.render('main/main', {
-    bookedApps: res.locals.bookedApps,
-  });
-}
+// function showBookedAppointments(req, res) {
+//   res.render('main/main', {
+//     bookedApps: res.locals.bookedApps,
+//   });
+// }
 
 function createBookedApp(req, res) {
   booked = res.locals.booked;
@@ -38,7 +38,6 @@ function deleteApp(req, res) {
 module.exports = {
   showAll,
   showOneApp,
-  showBookedAppointments,
   createBookedApp,
   updateBookedApp,
   deleteApp,

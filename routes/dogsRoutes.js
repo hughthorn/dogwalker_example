@@ -16,7 +16,6 @@ dogRouter.route('/')
     controller.showAllOpenApps,
     controller.showAllDogs,
     controller.showAllWalkers,
-    controller.showBookedAppointments,
     viewController.showAll, sendError,
   );
 
