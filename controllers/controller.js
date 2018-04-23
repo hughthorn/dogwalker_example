@@ -1,10 +1,10 @@
 const dogsDb = require('../models/models');
 
-function getAllApps(req, res, next) {
-  console.log('Getting all clients');
+function showAllOpenApps(req, res, next) {
+  console.log('Getting all open appointments');
   dogsDb.getAllAppointments()
     .then(data => {
-      console.log('All appointments');
+      console.log('All open appointments');
       res.json(data);
       res.locals.allAppointments = data;
       next();
@@ -14,56 +14,86 @@ function getAllApps(req, res, next) {
     });
 }
 
-// function getOne(req, res, next) {
-//   dogsDb.getOneClient(req.params.id)
-//     .then(data => {
-//       res.json(data);
-//       // res.locals.client = data;
-//       // next();
-//     })
-//     .catch(err => {
-//       next(err);
-//     });
-// }
+function showAllDogs(req, res, next) {
+  console.log('Getting all dogs');
+  dogsDb.showAllDogs()
+    .then(data => {
+      console.log('All dogs');
+      res.json(data);
+      res.locals.allDogs = data;
+      next();
+    })
+    .catch(err=> {
+      next(err);
+    });
+  }
 
-// function create(req, res, next) {
-//   dogsDb.createClient(req.body)
-//     .then(data => {
-//       res.locals.newClient = data;
-//       next();
-//     })
-//     .catch(err => {
-//       next(err);
-//     });
-// }
+function showAllWalkers(req, res, next) {
+  console.log('Getting all walkers');
+  dogsDb.getAllWalkers()
+    .then(data => {
+      console.log('All walkers');
+      res.json(data);
+      res.locals.allWalkers = data;
+      next();
+    })
+    .catch(err=> {
+      next(err);
+    });
+  }
 
-// function update(req, res, next) {
-//     req.body.id = req.params.id;
-//   dogsDb.updateClient(req.body)
-//     .then(data => {
-//       res.redirect(`/clients/${req.body.id}`)
-//     })
-//     .catch(err=> {
-//       err:err
-//     });
-// }
+function showAllBookedApps() {
+  console.log('Getting all booked appointments');
+  dogsDb.getAllBookedAppointments()
+    .then(data => {
+      res.json(data);
+      res.locals.allBookedApps = data;
+      next();
+    })
+    .catch(err => {
+      next(err);
+    });
+}
 
-// function terminate(req, res) {
-//   studentsDb.deleteClient(req.params.id)
-//     .then(() => {
-//       res.redirect('/clients');
-//     })
-//     .catch(err => {
-//       res.status(500).json({
-//         message:err.message
-//       })
-//     });
-// }
+function create(req, res, next) {
+  dogsDb.createAppointment(req.body)
+    .then(data => {
+      res.locals.newAppointment = data;
+      next();
+    })
+    .catch(err => {
+      next(err);
+    });
+}
+
+function update(req, res, next) {
+    req.body.id = req.params.id;
+  dogsDb.updateDog(req.body)
+    .then(data => {
+      res.redirect(`/bookedAppointments/${req.body.id}`)
+    })
+    .catch(err=> {
+      err:err
+    });
+}
+
+function terminate(req, res) {
+  studentsDb.deleteDog(req.params.id)
+    .then(() => {
+      res.redirect('/bookedAppointments');
+    })
+    .catch(err => {
+      res.status(500).json({
+        message:err.message
+      })
+    });
+}
 
 module.exports = {
-  getAllApps,
-  // getOne,
-  // create,
-  // update,
-  // terminate,
+  showAllOpenApps,
+  showAllDogs,
+  showAllWalkers,
+  create,
+  update,
+  terminate,
 };
