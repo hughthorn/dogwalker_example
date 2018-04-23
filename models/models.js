@@ -5,7 +5,7 @@ const db = require('../config/connections');
 function getAllAppointments() {
   const queryAvailible = db.manyOrNone(`
     SELECT *
-    FROM available_appointments
+    FROM appointments
     ORDER BY id
     `);
   return queryAvailible;
@@ -35,6 +35,14 @@ function getAllBookedAppointments() {
     FROM booked_appointments
     ORDER BY id
     `);
+  return queryBooked;
+}
+
+function findOneAppointment(id) {
+  const queryBooked = db.one(`
+    SELECT *
+    FROM booked_appointments
+    WHERE id = $1`, id);
   return queryBooked;
 }
 
@@ -75,6 +83,7 @@ module.exports = {
   getAllDogs,
   getAllWalkers,
   getAllBookedAppointments,
+  findOneAppointment,
   createAppointment,
   updateDog,
   deleteAppointment,

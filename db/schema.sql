@@ -1,4 +1,4 @@
-
+\c dog_walker_crud_test
 
 DROP TABLE IF EXISTS available_appointments CASCADE;
 DROP TABLE IF EXISTS dogs CASCADE;
@@ -7,7 +7,9 @@ DROP TABLE IF EXISTS booked_appointments CASCADE;
 
 CREATE TABLE available_appointments (
   id SERIAL PRIMARY KEY,
-  available_time TIMESTAMP
+  available_time TIMESTAMP,
+  name VARCHAR(255),
+  dog VARCHAR(255)
 );
 
 CREATE TABLE dogs (
@@ -57,8 +59,6 @@ VALUES
 INSERT INTO walkers
   (name)
 VALUES
-  ('Jason'),
-  ('Jimmy'),
-  ('Sally');
+  ('Jason');
 
 

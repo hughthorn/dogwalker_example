@@ -39,10 +39,22 @@ function showAllWalkers(req, res, next) {
     });
   }
 
-function showAllBookedApps() {
+function showAllBookedApps(req, res, next) {
   console.log('Getting all booked appointments');
   dogsDb.getAllBookedAppointments()
     .then(booked => {
+      res.locals.booked = booked;
+      next();
+    })
+    .catch(err => {
+      next(err);
+    });
+}
+
+function showOne(req, res, next) {
+  console.log('Showing one appointment');
+  dogsDb.findOneAppointment(req.params.id)
+    .then(data => {
       res.locals.booked = booked;
       next();
     })
@@ -90,6 +102,7 @@ module.exports = {
   showAllDogs,
   showAllWalkers,
   showAllBookedApps,
+  showOne,
   create,
   update,
   terminate,

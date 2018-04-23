@@ -7,17 +7,11 @@ function showAll(req, res) {
   });
 }
 
-// function showDogs(req, res) {
-//   res.render('main/dogs', {
-//     dogs: res.locals.data,
-//   });
-// }
-
-// function showWalkers(req, res) {
-//   res.render('main/main', {
-//     walkers: res.locals.walkers,
-//   });
-// }
+function showOneApp(req, res) {
+  res.render('main/one', {
+    booked: res.locals.booked,
+  });
+}
 
 function showBookedAppointments(req, res) {
   res.render('main/main', {
@@ -26,12 +20,12 @@ function showBookedAppointments(req, res) {
 }
 
 function createBookedApp(req, res) {
-  bookedApps = res.locals.newApp;
-  res.redirect(`main/new ${bookedApps.id}`);
+  booked = res.locals.booked;
+  res.redirect(`create/new ${booked.id}`);
 }
 
 function updateBookedApp(req, res) {
-  update = res.locals.update;
+  res.locals.update = update;
   res.render('main/edit', {
     update: res.locals.update,
   });
@@ -43,8 +37,7 @@ function deleteApp(req, res) {
 
 module.exports = {
   showAll,
-  // showDogs,
-  // showWalkers,
+  showOneApp,
   showBookedAppointments,
   createBookedApp,
   updateBookedApp,
