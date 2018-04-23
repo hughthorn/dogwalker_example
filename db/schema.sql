@@ -1,4 +1,4 @@
-\c dog_walker_crud_test
+
 
 DROP TABLE IF EXISTS available_appointments CASCADE;
 DROP TABLE IF EXISTS dogs CASCADE;
