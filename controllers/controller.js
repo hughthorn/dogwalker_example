@@ -16,7 +16,7 @@ function showAllOpenApps(req, res, next) {
 
 function showAllDogs(req, res, next) {
   console.log('Getting all dogs');
-  dogsDb.showAllDogs()
+  dogsDb.getAllDogs()
     .then(data => {
       console.log('All dogs');
       res.json(data);
@@ -93,6 +93,7 @@ module.exports = {
   showAllOpenApps,
   showAllDogs,
   showAllWalkers,
+  showAllBookedApps,
   create,
   update,
   terminate,
