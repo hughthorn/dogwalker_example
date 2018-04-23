@@ -42,8 +42,8 @@ function showAllWalkers(req, res, next) {
 function showAllBookedApps() {
   console.log('Getting all booked appointments');
   dogsDb.getAllBookedAppointments()
-    .then(data => {
-      res.locals.allBookedApps = data;
+    .then(booked => {
+      res.locals.booked = booked;
       next();
     })
     .catch(err => {

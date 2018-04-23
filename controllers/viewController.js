@@ -3,6 +3,7 @@ function showAll(req, res) {
     appointments: res.locals.apps,
     dogs: res.locals.dogs,
     walkers: res.locals.data,
+    booked: res.locals.booked,
   });
 }
 
