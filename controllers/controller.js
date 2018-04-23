@@ -5,8 +5,7 @@ function showAllOpenApps(req, res, next) {
   dogsDb.getAllAppointments()
     .then(data => {
       console.log('All open appointments');
-      res.json(data);
-      res.locals.allAppointments = data;
+      res.locals.data = data;
       next();
     })
     .catch(err=> {
@@ -19,8 +18,7 @@ function showAllDogs(req, res, next) {
   dogsDb.getAllDogs()
     .then(data => {
       console.log('All dogs');
-      res.json(data);
-      res.locals.allDogs = data;
+      res.locals.data = data;
       next();
     })
     .catch(err=> {
@@ -33,7 +31,6 @@ function showAllWalkers(req, res, next) {
   dogsDb.getAllWalkers()
     .then(data => {
       console.log('All walkers');
-      res.json(data);
       res.locals.allWalkers = data;
       next();
     })
@@ -46,7 +43,6 @@ function showAllBookedApps() {
   console.log('Getting all booked appointments');
   dogsDb.getAllBookedAppointments()
     .then(data => {
-      res.json(data);
       res.locals.allBookedApps = data;
       next();
     })

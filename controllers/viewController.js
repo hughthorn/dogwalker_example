@@ -1,12 +1,12 @@
 function showOpenAppointments(req, res) {
-  res.render('main/main', {
-    appointments: res.locals.appointments,
+  res.render('main/available', {
+    appointments: res.locals.data,
   });
 }
 
 function showDogs(req, res) {
-  res.render('main/main', {
-    dogs: res.locals.dogs,
+  res.render('main/dogs', {
+    dogs: res.locals.data,
   });
 }
 

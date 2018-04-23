@@ -13,8 +13,10 @@ function sendError(err, req, res, next) {
 
 dogRouter.route('/')
   .get(controller.showAllOpenApps, viewController.showOpenAppointments, sendError)
-  .get(controller.showAllDogs, viewController.showDogs, sendError)
-  .get(controller.showAllWalkers, viewController.showWalkers, sendError);
+
+dogRouter.route('/dogs')
+  .get(controller.showAllDogs, viewController.showDogs, sendError);
+  // .get(controller.showAllWalkers, viewController.showWalkers, sendError);
 // .get(controller.showAllBookedApps, viewController.showBookedAppointments, sendError);
 // .post(controller.create, viewController.selectOneClient);
 

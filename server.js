@@ -17,9 +17,10 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 app.use('/', router);
-// app.get('/', (req, res) => {
-//   res.render('homepage.ejs');
-// });
+
+app.get('/', (req, res) => {
+  res.render('available');
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
