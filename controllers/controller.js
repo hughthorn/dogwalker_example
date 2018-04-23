@@ -3,9 +3,9 @@ const dogsDb = require('../models/models');
 function showAllOpenApps(req, res, next) {
   console.log('Getting all open appointments');
   dogsDb.getAllAppointments()
-    .then(data => {
+    .then(apps => {
       console.log('All open appointments');
-      res.locals.data = data;
+      res.locals.apps = apps;
       next();
     })
     .catch(err=> {
@@ -16,22 +16,22 @@ function showAllOpenApps(req, res, next) {
 function showAllDogs(req, res, next) {
   console.log('Getting all dogs');
   dogsDb.getAllDogs()
-    .then(data => {
+    .then(dogs => {
       console.log('All dogs');
-      res.locals.data = data;
+      res.locals.dogs = dogs;
       next();
     })
     .catch(err=> {
       next(err);
     });
-  }
+}
 
 function showAllWalkers(req, res, next) {
   console.log('Getting all walkers');
   dogsDb.getAllWalkers()
     .then(data => {
       console.log('All walkers');
-      res.locals.allWalkers = data;
+      res.locals.data = data;
       next();
     })
     .catch(err=> {
