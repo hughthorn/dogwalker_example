@@ -61,7 +61,7 @@ Utilize Dog API
 
 <% include ../../partials/end %>
 
-This is a snippet from my form edit ejs file (for update) that I 
+This is a snippet from my form edit ejs file (for update) that I was able to figure out on my own, using the Harry Potter homework as a reference.
 
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
