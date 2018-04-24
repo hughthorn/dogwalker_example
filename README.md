@@ -54,4 +54,7 @@ Use this section to include a brief code snippet of functionality that you are p
 
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object                            
+**RESOLUTION**: Missing comma after first object in sources {} object  
+
+In order to make a new appointment, make a form where the only thing you have to post is the available time. Converge all into one table, only one dog per timeslot
+                          

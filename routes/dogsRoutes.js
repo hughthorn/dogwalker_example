@@ -1,6 +1,6 @@
-const clientRouter = require('express').Router();
-const clientController = require('../controllers/controller');
-const viewController = require('../controllers/userController');
+const dogRouter = require('express').Router();
+const controller = require('../controllers/controller');
+const viewController = require('../controllers/viewController');
 
 // From Peter's HP solution
 function sendError(err, req, res, next) {
@@ -11,7 +11,40 @@ function sendError(err, req, res, next) {
   });
 }
 
-clientRouter.route('/')
-  .get(clientController.getAll, viewController.homePage, sendError);
+dogRouter.route('/')
+  .get(
+    controller.showAllOpenApps,
+    controller.showAllDogs,
+    controller.showAllWalkers,
+    viewController.showAll, sendError,
+  );
+// .post(controller.create, viewController.createBookedApp, sendError);
 
-module.exports = clientRouter;
+// dogRouter.route('/new/:dog_id')
+//   .get(controller.showOne, viewController.showOneApp, sendError)
+//   .post(controller.create, viewController.createBookedApp, sendError);
+
+dogRouter.route('/:id')
+  .get(controller.showOne, viewController.showOneApp, sendError)
+  .put(controller.update, viewController.editBookedApp, sendError)
+  .delete(controller.terminate, sendError);
+
+dogRouter.route('/:id/edit')
+  .get(controller.showOne, viewController.editBookedApp);
+
+// dogRouter.route('/delete/:id')
+//   .delete(controller.terminate, viewController.terminate, sendError);
+// dogRouter.route('/dogs')
+//   .get(controller.showAllDogs, viewController.showDogs, sendError);
+// .get(controller.showAllWalkers, viewController.showWalkers, sendError);
+// .get(controller.showAllBookedApps, viewController.showBookedAppointments, sendError);
+// .post(controller.create, viewController.selectOneClient);
+
+// dogRouter.route('/new')
+//   .get(controller.)
+// clientRouter.route('/:id')
+//   .get(clientController.getOne, viewController.selectOneClient);
+// clientRouter.route('/')
+// .get(clientController.getAll, sendError);
+
+module.exports = dogRouter;

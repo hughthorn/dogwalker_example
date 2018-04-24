@@ -1,0 +1,11 @@
+<% include ../../partials/boilerplate %>
+
+<div class="edit">
+<form action="/<%=booked.id%>?_method=PUT" method="POST">
+  <input type="text" name="dog_id" value="<%=booked.dog_id%>" /><br>
+  <input type="submit" value="Make Appointment" />
+</form>
+<a href="/"> Back to Main List </a>
+</div>
+
+<% include ../../partials/end %>

@@ -1,0 +1,22 @@
+<% include ../../partials/boilerplate %>
+<div class="appointments_table">
+    <% appointments.forEach((apps) => { %>
+    <a href="/<%=apps.id%>" class="appointment_entry"><%=apps.available_time%><%=apps.dog_id%><%=apps.walker_id%>
+    </a>
+      <% }) %>
+</div>
+<div class="dog_table">
+  <% dogs.forEach((dog) => { %>
+    <div class="dog_entry">
+      <%=dog.dname%>
+    </div>
+    <% }) %>
+</div>
+<div class="walker_table">
+  <% walkers.forEach((walker) => { %>
+  <div class="walker_entry">
+    <%=walker.wname%>
+  </div>
+  <% }) %>
+</div>
+<% include ../../partials/end %>

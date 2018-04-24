@@ -1,0 +1,15 @@
+<% include ../../partials/boilerplate %>
+  <div class="showOne">
+    <h1>
+      <%= booked.available_time%>
+      <%= booked.dog_id%>
+      <%= booked.walker_id%>
+    </h1>
+    <form action="/<%=booked.id%>/edit" method="GET";>
+      <input type="submit" value="Add Dog ID To Make Appointment">
+    </form>
+    <form action="/<%=booked.id%>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete Entry">
+    </form>
+  </div>
+<% include ../../partials/end %>
