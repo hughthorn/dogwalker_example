@@ -1,4 +1,3 @@
-\c dog_walker_crud_test
 
 DROP TABLE IF EXISTS appointments CASCADE;
 DROP TABLE IF EXISTS dogs CASCADE;
