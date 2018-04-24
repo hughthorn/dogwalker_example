@@ -3,6 +3,10 @@
 
 An app for dog walkers and their clients, where clients can request a dogwalker by selecting a timeframe available from a walker's appoinment table. Dog walkers can then choose a time that's good for the client and store it in on the appointment table. The client or walker can also delete themselves from the database if they no longer wish to do business.
 
+## User Story
+
+
+
 ## Wireframes
 
 Initial idea - https://imgur.com/TIavn9j
@@ -49,29 +53,50 @@ Utilize Dog API
 
 ## Code Snippet
 
-<% include ../../partials/boilerplate %>
-
-<div class="edit">
-<form action="/<%=booked.id%>?_method=PUT" method="POST">
-  <input type="text" name="dog_id" value="<%=booked.dog_id%>" /><br>
-  <input type="submit" value="Make Appointment" />
-</form>
-<a href="/"> Back to Main List </a>
-</div>
-
-<% include ../../partials/end %>
+    <% include ../../partials/boilerplate %>
+    
+    <div class="edit">
+    <form action="/<%=booked.id%>?_method=PUT" method="POST">
+      <input type="text" name="dog_id" value="<%=booked.dog_id%>" /><br>
+      <input type="submit" value="Make Appointment" />
+    </form>
+    <a href="/"> Back to Main List </a>
+    </div>
+    
+    <% include ../../partials/end %>
 
 This is a snippet from my form edit ejs file (for update) that I was able to figure out on my own, using the Harry Potter homework as a reference.
 
 ## Change Log
- Originally I was going to have this as an app to help people choose what type of dog breed would best suit their needs.  
+ Originally I was going to have this as an app to help people choose what type of dog breed would best suit their needs. However, after talking with SRC, we decided to change it to an appointmen t app, since 
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object  
+Below is a list of errors I encountered:
+**ERROR**: psql dog_walker_crud_test -f schema.sql
+You are now connected to database "dog_walker_crud" as user "hughthornhill".
+psql:schema.sql:12: ERROR:  syntax error at or near "DROP"
+LINE 2: DROP TABLE IF EXISTS walker
+        ^
+psql:schema.sql:19: ERROR:  relation "client" does not exist
+LINE 1: INSERT INTO client
+                              
+**RESOLUTION**: An additional comment was left within the sql file, causing the error.
 
-In order to make a new appointment, make a form where the only thing you have to post is the available time. Converge all into one table, only one dog per timeslot
-                          
+**ERROR**: /Users/hughthornhill/code/wdi/unit02/projects/dogwalker-project-2/node_modules/express/lib/router/route.js:202
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires a callback function but got a [object Undefined]
+**RESOLUTION**: Wrong function was being called in the route
+
+**ERROR**: 3. psql:db/schema.sql:11: ERROR:  relation "appointments" does not exist
+psql:db/schema.sql:17: ERROR:  relation "appointments" does not exist
+CREATE TABLE
+psql:db/schema.sql:28: ERROR:  relation "dogs" does not exist
+LINE 1: INSERT INTO dogs
+                    ^
+psql:db/schema.sql:33: ERROR:  relation "walker" does not exist
+LINE 1: INSERT INTO walker
+**RESOLUTION**: Foreign keys were not set up properly. Fixed syntax.
+
