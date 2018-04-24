@@ -26,10 +26,11 @@ dogRouter.route('/')
 
 dogRouter.route('/:id')
   .get(controller.showOne, viewController.showOneApp, sendError)
+  .put(controller.update, viewController.editBookedApp, sendError)
   .delete(controller.terminate, sendError);
 
-dogRouter.route('/new/:id')
-  .put(controller.update, sendError);
+dogRouter.route('/:id/edit')
+  .get(controller.showOne, viewController.editBookedApp);
 
 // dogRouter.route('/delete/:id')
 //   .delete(controller.terminate, viewController.terminate, sendError);

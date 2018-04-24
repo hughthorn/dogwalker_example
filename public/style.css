@@ -1,0 +1,66 @@
+/*body {
+  margin: 0;
+  text-align: center;
+}*/
+
+.appointments_table {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0;
+  margin: auto;
+  justify-content: space-around;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  border: black 1px solid;
+}
+
+.appointment_entry {
+  border: black 1px solid;
+}
+
+.dog_table {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0;
+  margin: auto;
+  justify-content: space-around;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  border: black 1px solid;
+}
+
+.dog_entry {
+  border: black 1px solid;
+}
+
+.walker_table {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0;
+  margin: auto;
+  justify-content: space-around;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  border: black 1px solid;
+}
+
+.walker_entry {
+  border: black 1px solid;
+}
+
+

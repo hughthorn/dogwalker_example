@@ -55,6 +55,7 @@ function updateDog(dog) {
   const update = db.one(`
     UPDATE appointments
     SET dog_id = $/dog_id/
+    WHERE id = $/id/
     RETURNING *`, dog);
   return update;
 }

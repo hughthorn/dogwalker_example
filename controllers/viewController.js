@@ -17,10 +17,10 @@ function showOneApp(req, res) {
 //   res.redirect(`create/new ${booked.id}`);
 // }
 
-function updateBookedApp(req, res) {
-  res.locals.update = update;
+function editBookedApp(req, res) {
+  // booked = res.locals.booked;
   res.render('main/edit', {
-    update: res.locals.update,
+    booked: res.locals.booked,
   });
 }
 
@@ -32,7 +32,7 @@ module.exports = {
   showAll,
   showOneApp,
   // createBookedApp,
-  updateBookedApp,
+  editBookedApp,
   deleteApp,
 };
 

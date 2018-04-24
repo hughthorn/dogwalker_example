@@ -51,22 +51,22 @@ function showAllWalkers(req, res, next) {
     });
 }
 
-function create(req, res, next) {
-  dogsDb.createAppointment(req.body.id)
-    .then(data => {
-      res.locals.newAppointment = data;
-      next();
-    })
-    .catch(err => {
-      next(err);
-    });
-}
+// function create(req, res, next) {
+//   dogsDb.createAppointment(req.body.id)
+//     .then(data => {
+//       res.locals.newAppointment = data;
+//       next();
+//     })
+//     .catch(err => {
+//       next(err);
+//     });
+// }
 
 function update(req, res, next) {
-  // req.body.id = req.params.id;
-  dogsDb.updateDog(req.params.id)
+  req.body.id = req.params.id;
+  dogsDb.updateDog(req.body)
     .then(data => {
-      res.redirect(`/new/${req.params.id}`)
+      res.redirect(`/${req.body.id}`)
       next();
     })
     .catch(err=> {
@@ -91,7 +91,7 @@ module.exports = {
   showAllDogs,
   showAllWalkers,
   showOne,
-  create,
+  // create,
   update,
   terminate,
 };
