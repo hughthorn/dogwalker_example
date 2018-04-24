@@ -1,7 +1,7 @@
 // Template for this model came from Peter Hoang
 const db = require('../config/connections');
 
-// SELECT ALL
+// SELECT ALL FROM APPOINTMENTS TABLE
 function getAllAppointments() {
   const queryAppointments = db.manyOrNone(`
     SELECT *
@@ -12,6 +12,7 @@ function getAllAppointments() {
   return queryAppointments;
 }
 
+// GET ALL FROM DOGS TABLE
 function getAllDogs() {
   const queryDogs = db.manyOrNone(`
     SELECT *
@@ -21,6 +22,7 @@ function getAllDogs() {
   return queryDogs;
 }
 
+// GET ALL FROM WALKERS TABLE
 function getAllWalkers() {
   const queryWalkers = db.manyOrNone(`
     SELECT *
@@ -30,6 +32,7 @@ function getAllWalkers() {
   return queryWalkers;
 }
 
+// FIND ONE APPOINTMENT FROM APPOINTMENTS TABLE
 function findOneAppointment(id) {
   const queryBooked = db.one(`
     SELECT *
@@ -38,7 +41,7 @@ function findOneAppointment(id) {
   return queryBooked;
 }
 
-// CREATE
+// CREATE NEW APPOINTMENT (not implemented yet)
 
 // function createAppointment(app) {
 //   const create = db.one(`
@@ -50,7 +53,7 @@ function findOneAppointment(id) {
 //   return create;
 // }
 
-// UPDATE
+// UPDATE APPOINTMENTS TABLE
 function updateDog(dog) {
   const update = db.one(`
     UPDATE appointments
@@ -60,8 +63,7 @@ function updateDog(dog) {
   return update;
 }
 
-// DELETE
-
+// DELETE APPOINTMENT FROM TABLE
 function deleteAppointment(id) {
   const terminate = db.none(`
     DELETE FROM appointments
@@ -69,6 +71,7 @@ function deleteAppointment(id) {
   return terminate;
 }
 
+// EXPORT ALL MODELS
 module.exports = {
   getAllAppointments,
   findOneAppointment,

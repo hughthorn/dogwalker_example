@@ -27,6 +27,11 @@ EJS
 CSS3
 Dog API (optional)
 
+## References
+https://git.generalassemb.ly/wdi-nyc-rover/harrypotter-homework-solution/
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+David Anzaria from SRC, who helped me develop the idea of the dog walker app.
+
 ## MVP 
 
 Landing/homepage
@@ -35,7 +40,7 @@ Client list and appointment list
 Logout page with link to homepage
 Basic CSS styling
 
-## POST MVP
+## Post MVP
 
 Able to log in as client
 Elaborate CSS styling
@@ -44,10 +49,22 @@ Utilize Dog API
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  
+<% include ../../partials/boilerplate %>
+
+<div class="edit">
+<form action="/<%=booked.id%>?_method=PUT" method="POST">
+  <input type="text" name="dog_id" value="<%=booked.dog_id%>" /><br>
+  <input type="submit" value="Make Appointment" />
+</form>
+<a href="/"> Back to Main List </a>
+</div>
+
+<% include ../../partials/end %>
+
+This is a snippet from my form edit ejs file (for update) that I was able to figure out on my own, using the Harry Potter homework as a reference.
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Originally I was going to have this as an app to help people choose what type of dog breed would best suit their needs.  
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.

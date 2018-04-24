@@ -1,7 +1,4 @@
-/*body {
-  margin: 0;
-  text-align: center;
-}*/
+/*USED TEMPLATE FROM: https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
 
 .appointments_table {
   display: -webkit-box;
