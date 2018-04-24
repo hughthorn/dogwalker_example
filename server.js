@@ -3,10 +3,12 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const methodOverride = require('method-override');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const router = require('./routes/dogsRoutes');
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
