@@ -24,9 +24,9 @@ CREATE TABLE appointments (
 INSERT INTO dogs
   (dname)
 VALUES
-  ('Spots'),
-  ('Fido'),
-  ('Steve');
+  ('Spots (Enter 1)'),
+  ('Fido (Enter 2)'),
+  ('Steve (Enter 3)');
 
 INSERT INTO walkers
   (wname)
