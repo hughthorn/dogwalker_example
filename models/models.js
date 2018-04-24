@@ -1,4 +1,4 @@
-// Template for this model came from Peter Hoang
+// Template for the models came from Peter Hoang's Harry Potter solution
 const db = require('../config/connections');
 
 // SELECT ALL FROM APPOINTMENTS TABLE

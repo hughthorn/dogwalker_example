@@ -3,9 +3,13 @@
 
 An app for dog walkers and their clients, where clients can request a dogwalker by selecting a timeframe available from a walker's appoinment table. Dog walkers can then choose a time that's good for the client and store it in on the appointment table. The client or walker can also delete themselves from the database if they no longer wish to do business.
 
+## Video Presentation
+https://www.youtube.com/watch?v=0YZUUW2gyAA
+
 ## User Story
+ I’m a dog walker, and I want to be able to find potential customers and list my available appointment times.
 
-
+ I'm a dog owner, but I don't have the time to walk my dog every day. I want an app that will allow me to look up available appointments from walkers to take my dog out within the immediate area.
 
 ## Wireframes
 
@@ -21,19 +25,22 @@ https://imgur.com/6L1AA1c
 
 ## Technologies
 
-Node.js
-Express
-Pg Promise
-Morgan
-Javascript
-PSQL
-EJS
-CSS3
+Node.js,
+Express,
+Pg Promise,
+Morgan,
+Javascript,
+PSQL,
+EJS,
+CSS3,
 Dog API (optional)
 
 ## References
-https://git.generalassemb.ly/wdi-nyc-rover/harrypotter-homework-solution/
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://git.generalassemb.ly/wdi-nyc-rover/harrypotter-homework-solution/,
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/,
+https://medium.com/@aem_iro/deploying-a-node-js-postgressql-app-to-heroku-hosting-platform-cc611287ae76,
+https://www.mountaingoatsoftware.com/agile/user-stories,
+http://guides.rubyonrails.org/association_basics.html,
 David Anzaria from SRC, who helped me develop the idea of the dog walker app.
 
 ## MVP 
@@ -66,9 +73,6 @@ Utilize Dog API
     <% include ../../partials/end %>
 
 This is a snippet from my form edit ejs file (for update) that I was able to figure out on my own, using the Harry Potter homework as a reference.
-
-## Change Log
- Originally I was going to have this as an app to help people choose what type of dog breed would best suit their needs. However, after talking with SRC, we decided to change it to an appointmen t app, since 
 
 ## Issues and Resolutions
 
