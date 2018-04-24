@@ -64,7 +64,7 @@ Utilize Dog API
 This is a snippet from my form edit ejs file (for update) that I was able to figure out on my own, using the Harry Potter homework as a reference.
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Originally I was going to have this as an app to help people choose what type of dog breed would best suit their needs.  
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
