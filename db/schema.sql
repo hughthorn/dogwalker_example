@@ -1,4 +1,3 @@
-\c dog_walker_crud_test
 
 DROP TABLE IF EXISTS appointments CASCADE;
 DROP TABLE IF EXISTS dogs CASCADE;
@@ -24,9 +23,9 @@ CREATE TABLE appointments (
 INSERT INTO dogs
   (dname)
 VALUES
-  ('Spots'),
-  ('Fido'),
-  ('Steve');
+  ('Spots (Enter 1)'),
+  ('Fido (Enter 2)'),
+  ('Steve (Enter 3)');
 
 INSERT INTO walkers
   (wname)

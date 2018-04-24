@@ -1,8 +1,8 @@
 function showAll(req, res) {
   res.render('main/available', {
     appointments: res.locals.apps,
-    dogs: res.locals.dogs,
-    walkers: res.locals.data,
+    dogs:         res.locals.dogs,
+    walkers:      res.locals.data,
   });
 }
 
