@@ -1,3 +1,4 @@
+// Template for the controllers came from Peter Hoang's Harry Potter solution
 const dogsDb = require('../models/models');
 
 // Show Appointment Table on homepage
