@@ -1,6 +1,6 @@
 const dogsDb = require('../models/models');
 
-// Show All Tables on homepage
+// Show Appointment Table on homepage
 function showAllOpenApps(req, res, next) {
   console.log('Getting all open appointments');
   dogsDb.getAllAppointments()
@@ -27,6 +27,7 @@ function showOne(req, res, next) {
     });
 }
 
+// Show Dogs Table on homepage
 function showAllDogs(req, res, next) {
   console.log('Getting all dogs');
   dogsDb.getAllDogs()
@@ -40,6 +41,7 @@ function showAllDogs(req, res, next) {
     });
 }
 
+// Show Walkers Table on homepage
 function showAllWalkers(req, res, next) {
   console.log('Getting all walkers');
   dogsDb.getAllWalkers()
@@ -53,6 +55,7 @@ function showAllWalkers(req, res, next) {
     });
 }
 
+// Create controller function (not implemented)
 // function create(req, res, next) {
 //   dogsDb.createAppointment(req.body.id)
 //     .then(data => {
@@ -64,6 +67,7 @@ function showAllWalkers(req, res, next) {
 //     });
 // }
 
+// Update Appointment function
 function update(req, res, next) {
   req.body.id = req.params.id;
   dogsDb.updateDog(req.body)
@@ -76,6 +80,7 @@ function update(req, res, next) {
     });
 }
 
+// Delete Appointment function
 function terminate(req, res) {
   dogsDb.deleteAppointment(req.params.id)
     .then(() => {
