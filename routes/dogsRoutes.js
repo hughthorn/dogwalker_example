@@ -18,13 +18,24 @@ dogRouter.route('/')
     controller.showAllWalkers,
     viewController.showAll, sendError,
   );
+// .post(controller.create, viewController.createBookedApp, sendError);
+
+// dogRouter.route('/new/:dog_id')
+//   .get(controller.showOne, viewController.showOneApp, sendError)
+//   .post(controller.create, viewController.createBookedApp, sendError);
 
 dogRouter.route('/:id')
-  .get(controller.showOne, viewController.showOneApp, sendError);
+  .get(controller.showOne, viewController.showOneApp, sendError)
+  .delete(controller.terminate, sendError);
 
+dogRouter.route('/new/:id')
+  .put(controller.update, sendError);
+
+// dogRouter.route('/delete/:id')
+//   .delete(controller.terminate, viewController.terminate, sendError);
 // dogRouter.route('/dogs')
 //   .get(controller.showAllDogs, viewController.showDogs, sendError);
-  // .get(controller.showAllWalkers, viewController.showWalkers, sendError);
+// .get(controller.showAllWalkers, viewController.showWalkers, sendError);
 // .get(controller.showAllBookedApps, viewController.showBookedAppointments, sendError);
 // .post(controller.create, viewController.selectOneClient);
 

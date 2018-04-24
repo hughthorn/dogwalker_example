@@ -51,9 +51,8 @@ function showAllWalkers(req, res, next) {
     });
 }
 
-
 function create(req, res, next) {
-  dogsDb.createAppointment(req.body)
+  dogsDb.createAppointment(req.body.id)
     .then(data => {
       res.locals.newAppointment = data;
       next();
@@ -64,10 +63,11 @@ function create(req, res, next) {
 }
 
 function update(req, res, next) {
-    req.body.id = req.params.id;
-  dogsDb.updateDog(req.body)
+  // req.body.id = req.params.id;
+  dogsDb.updateDog(req.params.id)
     .then(data => {
-      res.redirect(`/bookedAppointments/${req.body.id}`)
+      res.redirect(`/new/${req.params.id}`)
+      next();
     })
     .catch(err=> {
       err:err
@@ -75,9 +75,9 @@ function update(req, res, next) {
 }
 
 function terminate(req, res) {
-  studentsDb.deleteDog(req.params.id)
+  dogsDb.deleteAppointment(req.params.id)
     .then(() => {
-      res.redirect('/bookedAppointments');
+      res.redirect('/');
     })
     .catch(err => {
       res.status(500).json({

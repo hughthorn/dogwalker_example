@@ -12,14 +12,6 @@ function getAllAppointments() {
   return queryAppointments;
 }
 
-function findOneAppointment(id) {
-  const queryBooked = db.one(`
-    SELECT *
-    FROM appointments
-    WHERE id = $1`, id);
-  return queryBooked;
-}
-
 function getAllDogs() {
   const queryDogs = db.manyOrNone(`
     SELECT *
@@ -38,22 +30,30 @@ function getAllWalkers() {
   return queryWalkers;
 }
 
+function findOneAppointment(id) {
+  const queryBooked = db.one(`
+    SELECT *
+    FROM appointments
+    WHERE id = $1`, [id]);
+  return queryBooked;
+}
+
 // CREATE
 
-function createAppointment(app) {
-  const create = db.one(`
-    INSERT INTO appointments
-    (dog_id)
-    VALUES ($/dog_id/)
-    REUTRNING *
-    `, app);
-  return create;
-}
+// function createAppointment(app) {
+//   const create = db.one(`
+//     INSERT INTO appointments
+//     (dog_id)
+//     VALUES ($/dog_id/)
+//     REUTRNING *
+//     `, app);
+//   return create;
+// }
 
 // UPDATE
 function updateDog(dog) {
   const update = db.one(`
-    UPDATE booked_appointments
+    UPDATE appointments
     SET dog_id = $/dog_id/
     RETURNING *`, dog);
   return update;
@@ -63,7 +63,7 @@ function updateDog(dog) {
 
 function deleteAppointment(id) {
   const terminate = db.none(`
-    DELETE FROM booked_appointments
+    DELETE FROM appointments
     WHERE id = $1`, id);
   return terminate;
 }
@@ -73,7 +73,7 @@ module.exports = {
   findOneAppointment,
   getAllDogs,
   getAllWalkers,
-  createAppointment,
+  // createAppointment,
   updateDog,
   deleteAppointment,
 };
