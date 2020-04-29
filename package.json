@@ -24,7 +24,7 @@
     "morgan": "^1.9.0",
     "node-fetch": "^2.1.2",
     "nodemon": "^1.17.3",
-    "npm": "^5.8.0",
+    "npm": "^6.13.4",
     "pg-promise": "^8.4.0"
   },
   "devDependencies": {
